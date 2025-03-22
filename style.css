@@ -1,2 +1,411 @@
-[InternetShortcut]
-URL=file:///c%3A/Users/usar/AppData/Local/Microsoft/Windows/INetCache/IE/QR3IL5Q2/system/style.css
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Light Mode Colors */
+:root {
+    --background-color: #ffffff; /* Soft white */
+    --text-color: #333333; /* Dark gray */
+    --primary-color: #3498db; /* Professional blue */
+    --secondary-color: #2ecc71; /* Calming green */
+    --danger-color: #e74c3c; /* Bold red */
+    --input-bg: #f8f9fa; /* Light gray */
+    --input-border: #dddddd; /* Light gray border */
+    --table-bg: #ffffff; /* White */
+    --table-header-bg: #3498db; /* Professional blue */
+    --table-header-color: #ffffff; /* White */
+    --table-row-bg: #f8f9fa; /* Light gray */
+    --table-row-hover: #ecf0f1; /* Slightly darker gray */
+}
+
+[data-theme="dark"] {
+    --background-color: #121212; /* خلفية داكنة جدًا (أسود تقريبًا) */
+    --text-color: #e0e0e0; /* نص رمادي فاتح */
+    --primary-color: #bb86fc; /* لون أساسي (بنفسجي فاتح) */
+    --secondary-color: #03dac6; /* لون ثانوي (فيروزي) */
+    --danger-color: #cf6679; /* لون للتحذيرات (وردي فاتح) */
+    --input-bg: #1e1e1e; /* خلفية حقول الإدخال (رمادي داكن) */
+    --input-border: #333333; /* حدود حقول الإدخال (رمادي داكن) */
+    --table-bg: #1e1e1e; /* خلفية الجداول (رمادي داكن) */
+    --table-header-bg: #bb86fc; /* خلفية عناوين الجداول (بنفسجي فاتح) */
+    --table-header-color: #121212; /* لون نص عناوين الجداول (أسود داكن) */
+    --table-row-bg: #2a2a2a; /* خلفية صفوف الجداول (رمادي داكن) */
+    --table-row-hover: #383838; /* خلفية صفوف الجداول عند التمرير (رمادي داكن) */
+}
+
+/* Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* CRUD Container */
+.crud-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+/* Input Form Section */
+.inputs {
+    background-color: var(--input-bg);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--input-border);
+}
+
+.inputs label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.inputs input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputs input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+.price-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.total-display {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    grid-column: span 2;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Buttons */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #2980b9);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2980b9, var(--primary-color));
+    transform: scale(1.05);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: linear-gradient(135deg, var(--secondary-color), #27ae60);
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #27ae60, var(--secondary-color));
+    transform: scale(1.05);
+}
+
+/* Danger Button */
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger-color), #c0392b);
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c0392b, var(--danger-color));
+    transform: scale(1.05);
+}
+
+/* Button Shadows */
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-section label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.search-section input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-section input::placeholder {
+    color: #888888;
+    font-style: italic;
+}
+
+.search-section input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background-color: var(--input-bg);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    transform: scale(1.02);
+}
+
+/* Search Buttons */
+.search-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.search-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary-color), #2980b9);
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-buttons button:hover {
+    background: linear-gradient(135deg, #2980b9, var(--primary-color));
+    transform: scale(1.05);
+}
+
+.search-buttons button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: var(--table-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+table th {
+    padding: 15px;
+    background: linear-gradient(135deg, var(--table-header-bg), #2980b9);
+    color: var(--table-header-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    color: var(--text-color);
+    font-size: 1rem;
+    border-bottom: 1px solid var(--input-border);
+}
+
+/* Highlight Rows on Hover */
+table tbody tr {
+    transition: all 0.3s ease-in-out;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--table-row-bg);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--table-bg);
+}
+
+table tbody tr:hover {
+    background-color: var(--table-row-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Borders */
+table td:first-child,
+table th:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+table td:last-child,
+table th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        width: 100%;
+    }
+    table th {
+        position: relative;
+        top: auto;
+        left: auto;
+        font-size: 1rem;
+    }
+    table td {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+    }
+    table tbody tr {
+        margin-bottom: 10px;
+        border: 1px solid var(--input-border);
+        border-radius: 12px;
+    }
+}
+
+/* Delete All Section */
+.delete-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .price-section {
+        grid-template-columns: 1fr;
+    }
+    .search-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    button {
+        width: 100%;
+    }
+}
+
+/* Highlight the form when editing */
+.inputs.editing {
+    background-color: var(--table-row-hover);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Smooth transition for input fields */
+.inputs input {
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Smooth transition for table rows */
+table tbody tr {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Highlight row on update click */
+table tbody tr.updating {
+    background-color: var(--primary-color);
+    transform: scale(1.02);
+}
+
+/* زر التبديل */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+}

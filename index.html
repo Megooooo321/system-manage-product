@@ -1,2 +1,98 @@
-[InternetShortcut]
-URL=file:///c%3A/Users/usar/AppData/Local/Microsoft/Windows/INetCache/IE/QR3IL5Q2/system/index.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Product Management System - Nefertem</title>
+</head>
+
+<body>
+    <main class="crud-container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Project For Any Brand</h1>
+            <p>Product Management System</p>
+        </header>
+        <button class="theme-toggle" id="theme-toggle">🌙 Dark Mode</button>
+
+        <!-- Input Form Section -->
+        <section class="inputs">
+            <form id="productForm" onsubmit="handleSubmit(event)">
+                <label for="title">Product Title</label>
+                <input type="text" id="title" placeholder="Enter product title" required>
+
+                <div class="price-section">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" placeholder="Enter price" onkeyup="getTotal()" required>
+
+                    <label for="taxes">Taxes</label>
+                    <input type="number" id="taxes" placeholder="Enter taxes" onkeyup="getTotal()">
+
+                    <label for="ads">Ads</label>
+                    <input type="number" id="ads" placeholder="Enter ads cost" onkeyup="getTotal()">
+
+                    <label for="discount">Discount</label>
+                    <input type="number" id="discount" placeholder="Enter discount" onkeyup="getTotal()">
+
+                    <div id="total" class="total-display">Total: 0</div>
+                </div>
+
+                <label for="count">Count</label>
+                <input type="number" id="count" placeholder="Enter quantity" required>
+
+                <label for="category">Category</label>
+                <input type="text" id="category" placeholder="Enter category" required>
+
+                <button type="submit" id="submit" class="btn-primary">Create Product</button>
+            </form>
+        </section>
+
+        <!-- Search Section -->
+        <section class="outputs">
+            <div class="search-section">
+                <label for="search">Search Products</label>
+                <input type="text" id="search" placeholder="Search..." onkeyup="searchData(this.value)">
+
+                <div class="search-buttons">
+                    <button id="searchTitle" onclick="getSearchMood('title')" class="btn-secondary">Search by Title</button>
+                    <button id="searchCategory" onclick="getSearchMood('category')" class="btn-secondary">Search by Category</button>
+                </div>
+            </div>
+        </section>
+        <div id="deleteAll" class="delete-all"></div>
+
+
+        <!-- Table Section -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Taxes</th>
+                    <th>Ads</th>
+                    <th>Discount</th>
+                    <th>Total</th>
+                    <th>Category</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+
+                </tr>
+            </thead>
+            <tbody id="productTable">
+                <!-- Rows will be populated dynamically -->
+            </tbody>
+        </table>
+
+        <!-- Delete All Section -->
+        <section id="deleteAll" class="delete-all hidden">
+            <button class="btn-danger" onclick="deleteAll()">Delete All Products</button>
+        </section>
+    </main>
+</body>
+
+</html>
